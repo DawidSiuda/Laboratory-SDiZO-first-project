@@ -1,5 +1,7 @@
 #include "List.h"
 
+
+
 /*
 ///<summary>
 ///Function show all elements from list in console.

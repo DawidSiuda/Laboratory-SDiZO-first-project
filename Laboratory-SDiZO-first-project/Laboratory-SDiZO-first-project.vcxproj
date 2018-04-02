@@ -111,9 +111,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Flags.h" />
+    <ClInclude Include="Structs.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Logs.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
