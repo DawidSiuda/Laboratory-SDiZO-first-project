@@ -2,6 +2,9 @@
 
 #include "List.h"
 #include "Heap.h"
+#include "Table.h"
+
+#include "Core.h"
 
 #include <iostream>
 #include <Windows.h>
@@ -13,7 +16,27 @@ using namespace std;
 
 void main()
 {
+	run_main_program();
+	/*
+	Table tab;
+	
+	for (int i = 0; i < 20; i++)
+	{
+		tab.push_random_place(i);
+	}
+	tab.show();
 
+	for (int i = 0; i < 60; i++)
+	{
+		tab.pop_random_place();
+		cout << "--------------------------" << endl;
+		
+	}
+
+	tab.show();
+	*/
+	/*
+	
 	Heap heap;
 
 	for (int i = 1; i < 11; i++)
@@ -45,7 +68,7 @@ void main()
 	}
 	cout << endl;
 	heap.show();
-
+	*/
 	/*
 	List<int> list;
 

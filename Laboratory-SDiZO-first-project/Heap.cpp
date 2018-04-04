@@ -66,7 +66,7 @@ void Heap::push(int element)
 		increment_lenhgt_of_parents(new_parent->left);
 	}
 
-	show();
+	//show();
 	//increment_lenhgt_of_parents(new_parent->left);
 	/////////////////////////////////////
 	/*
@@ -192,7 +192,10 @@ void Heap::show()
 
 		while (true)
 		{
+
 			//draw path
+			
+			
 			if (direction == RIGHT)
 			{
 				last_parent = current_node;
@@ -251,6 +254,7 @@ void Heap::show()
 
 				break;
 			}
+			
 			//show lenght
 			string node_as_string = to_string(current_node->value) +  " " += to_string(current_node->length) + line;
 			//string node_as_string = to_string(current_node->value) + " " + line;
