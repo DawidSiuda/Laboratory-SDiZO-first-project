@@ -112,8 +112,6 @@
   <ItemGroup>
     <ClInclude Include="Core.h" />
     <ClInclude Include="Flags.h" />
-    <ClInclude Include="Struct.h" />
-    <ClInclude Include="Structs.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Logs.h" />

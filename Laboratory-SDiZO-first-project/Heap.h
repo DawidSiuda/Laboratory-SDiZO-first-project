@@ -12,18 +12,33 @@ using namespace std;
 class Heap
 {
 public:
-	void push(int element);
+	void push(int value);
+	void pop(int value);
 	void show();
+	bool find_value(int value);
 
 	Heap();
 	~Heap();
 
-//private:
+private:
 
 	Node *root;
-	//int height;
+	Node *last_node;
+	int number_of_elements;
+	List<int> *path_to_last_node;
+
 private:
-	//Node *get_new_parent();
-	void increment_lenhgt_of_parents(Node *node);
+	
+	void change_values(Node *node1, Node *node2);
+
+	void back_last_node();
+
+	void set_node_in_tree(Node *const(node));
+
+	void set_node_in_tree_reverse(Node *const(node));
+
+	bool find_value(int value, Node *root);
+
+	Node *find_pointer_to_value(int value, Node *root);
 };
 

@@ -1,4 +1,15 @@
-﻿  Core.cpp
-d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(110): warning C4101: 'e': unreferenced local variable
+﻿  Heap.cpp
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(205): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(205): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(206): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(206): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(207): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(207): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(208): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(208): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(461): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(451): note: while compiling class template member function 'List<int>::List(void)'
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(18): note: see reference to function template instantiation 'List<int>::List(void)' being compiled
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(18): note: see reference to class template instantiation 'List<int>' being compiled
   Laboratory-SDiZO-first-project.vcxproj -> D:\pulpit\struktury danych\Laboratory-SDiZO-first-project\Debug\Laboratory-SDiZO-first-project.exe
   Laboratory-SDiZO-first-project.vcxproj -> D:\pulpit\struktury danych\Laboratory-SDiZO-first-project\Debug\Laboratory-SDiZO-first-project.pdb (Partial PDB)

@@ -98,7 +98,7 @@ bool read_data_from_file_to_structure(Table * tab, char * path)
 			{
 				if (first_value == true)
 				{
-					cout << "FIrst line: " <<  line << endl;
+					cout << "Value at frst line: " <<  line << endl;
 					first_value = false;
 					continue;
 				}

@@ -18,6 +18,7 @@ public:
 	bool empty() const;
 	int get_size();
 	Type top() const;
+	void edit_value_at(int index, Type new_value);
 
 	Type get_value_at(int index);
 	
@@ -117,11 +118,37 @@ template<typename Type>
 	{
 		if (empty() == true)
 		{
+			#ifdef SHOW_LOGS
 			cout << "LOG: list: function \"top\" return NUll as 0" << endl;
+			#endif // SHOW_LOGS
+
 			return 0;
 		}
 
 		return last->value;
+	}
+
+	template<typename Type>
+	inline void List<Type>::edit_value_at(int index, Type new_value)
+	{
+		element *ptr = first;
+		for (int i = 0; ptr != NULL && i < index; i++)
+		{
+			ptr = ptr->next;
+		}
+
+		if (ptr == NULL)
+		{
+
+			#ifdef SHOW_LOGS
+			cout << "LOG: list: function \"edit_value_at\" can't find element in list" << endl;
+			#endif // SHOW_LOGS
+
+			return;
+		}
+
+		ptr->value = new_value;
+		return;
 	}
 
 
@@ -290,7 +317,9 @@ template<typename Type>
 		}
 		else
 		{
+			#ifdef SHOW_LOGS
 			cout << "LOG: list: can't call pop() on list. List is empty" << endl;
+			#endif // SHOW_LOGS
 		}
 	}
 
@@ -300,7 +329,7 @@ template<typename Type>
 	inline void List<Type>::pop_back()
 	{
 		#ifdef LOG_LIST
-			cout << "--> pop_back() has been called" << endl;
+		cout << "--> pop_back() has been called" << endl;
 		#endif // LOG_LIST
 
 		if (last != NULL)
@@ -322,7 +351,9 @@ template<typename Type>
 		}
 		else
 		{
+			#ifdef SHOW_LOGS
 			cout << "LOG: list: can't call pop() on list. List is empty" << endl;
+			#endif // SHOW_LOGS
 		}
 		
 	}
@@ -331,7 +362,7 @@ template<typename Type>
 	inline void List<Type>::pop_random_place()
 	{
 		#ifdef LOG_LIST
-			cout << "--> pop_random_place() has been called" << endl;
+		cout << "--> pop_random_place() has been called" << endl;
 		#endif // LOG_LIS
 
 		if (empty() == false)
@@ -343,8 +374,8 @@ template<typename Type>
 			}	
 
 			#ifdef LOG_LIST
-				cout << "\tsize: " << size << endl;
-				cout << "\t pop from index nr: " << index << endl;
+			cout << "\tsize: " << size << endl;
+			cout << "\t pop from index nr: " << index << endl;
 			#endif // LOG_LIS
 
 			if (last == first)
@@ -384,7 +415,9 @@ template<typename Type>
 		}
 		else
 		{
+			#ifdef SHOW_LOGS
 			cout << "LOG: list: can't call pop() on list. List is empty" << endl;
+			#endif // SHOW_LOGS
 		}
 	}
 
@@ -403,7 +436,10 @@ template<typename Type>
 			cout << "ERROR: Linia  " << __LINE__ << " List.h" << endl;
 			#endif // LOG_LIST
 
+			#ifdef SHOW_LOGS
 			cout << "LOG: list: function \"get_value_at\" return NUll as 0" << endl;
+			#endif // SHOW_LOGS
+			
 			return 0;
 		}
 		return ptr->value;
@@ -432,6 +468,9 @@ template<typename Type>
 		while (first != NULL)
 		{
 			pop_front();
-			cout << "delete counter " << counter++ << endl;
+
+			#ifdef SHOW_LOGS
+			cout << "delete counter: " << counter++ << endl;
+			#endif // SHOW_LOGS
 		}
 	}

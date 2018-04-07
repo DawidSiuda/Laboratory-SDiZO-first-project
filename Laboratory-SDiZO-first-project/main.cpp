@@ -16,7 +16,14 @@ using namespace std;
 
 void main()
 {
-	run_main_program();
+#ifdef SHOW_LOGS
+	cout << " defined SHOW_LOGS" << endl;
+#endif // SHOW_LOGS
+
+
+	//List<int>sdget;
+	//List<string> iiduhiew;
+	//run_main_program();
 	/*
 	Table tab;
 	
@@ -35,21 +42,41 @@ void main()
 
 	tab.show();
 	*/
-	/*
+	
 	
 	Heap heap;
 
-	for (int i = 1; i < 11; i++)
+	for (int i = 1; i < 15; i++)
 	{
 		
-		cout << "--------------------------" << endl;
 		heap.push(i);
-		//cout << endl;
-		//list.show_back();
-		cout << "--------------------------" << endl;
 	}
 
+	/*heap.pop(1);
+	heap.pop(14);
+	heap.show();
+	heap.push(50);
+	heap.show();*/
+
+	heap.~Heap();
+
+	cout << endl;
+	//heap.show();
+	system("pause");
+	return;
+	/*
+	cout << "find: " << heap.find_value(1) << endl;
+	cout << "find: " << heap.find_value(3) << endl;
+	cout << "find: " << heap.find_value(0) << endl;
+	cout << "find: " << heap.find_value(50) << endl;
+	cout << "find: " << heap.find_value(5) << endl;
+	*/
+
+	//int dupa = heap.root->left->left->value;
+	//cout << "dupa: " << dupa << endl;
+
 	//Node *ptr = heap.root->left->left;
+	/*
 	Node *ptr = heap.root->right->left->left->left;
 
 	if (ptr != NULL)
@@ -66,9 +93,9 @@ void main()
 		cout << endl << "======================================" << endl;
 
 	}
-	cout << endl;
-	heap.show();
 	*/
+	
+	
 	/*
 	List<int> list;
 
@@ -116,7 +143,6 @@ void main()
 //	cout << "ERROR: Linia" << lineume << " List.h" << endl;
 //#endif // TEST
 //
-	system("pause");
 
 
 
@@ -125,6 +151,6 @@ void main()
 
 
 	
-	return;
+	
 
 }
