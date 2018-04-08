@@ -2,6 +2,14 @@
 
 void Heap::push(int value)
 {
+	if (find(value) == true)
+	{	
+		#ifdef SHOW_LOGS
+		cout << "LOG: HEAP: can't add existing value to the heap" << endl;
+		#endif // SHOW_LOGS
+
+		return;
+	}
 	//
 	//create path to new node
 	//
@@ -152,6 +160,19 @@ void Heap::pop(int value)
 		}
 		else
 		{
+			if (last_node->up != NULL)
+			{
+				if (path_to_last_node->top() == RIGHT)
+				{
+					last_node->up->right = NULL;
+				}
+				else
+				if (path_to_last_node->top() == LEFT)
+				{
+					last_node->up->left = NULL;
+				}
+			}
+
 			delete last_node;
 			back_last_node();
 			number_of_elements--;
@@ -223,7 +244,7 @@ void Heap::show()
 	//set table of positions to draw pipes on console 
 	for (int i = 0; i <hight; i++)
 	{
-		tab_of_pipes[i] = 0;
+		//tab_of_pipes[i] = 0;
 	}
 
 	if (current_node == NULL)
@@ -406,7 +427,7 @@ void Heap::show()
 	return;
 }
 
-bool Heap::find_value(int value)
+bool Heap::find(int value)
 {
 	#ifdef LOG_HEAP
 	cout << "heap --> find_value() has been called" << endl << endl;
@@ -417,6 +438,11 @@ bool Heap::find_value(int value)
 
 bool Heap::find_value(int value, Node *root)
 {
+	if (root == NULL);
+	{
+		return false;
+	}
+
 	if (root->value == value)
 	{
 		return true;
@@ -476,7 +502,6 @@ Heap::Heap()
 	number_of_elements = 0;
 	//path_to_last_node = new List<int>;
 }
-
 
 Heap::~Heap()
 {

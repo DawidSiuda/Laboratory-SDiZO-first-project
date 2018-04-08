@@ -115,14 +115,14 @@
     <ClInclude Include="Heap.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Logs.h" />
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="Array.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="Array.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

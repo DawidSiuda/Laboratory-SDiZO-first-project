@@ -1,0 +1,21 @@
+﻿  Core.cpp
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(118): warning C4101: 'e': unreferenced local variable
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(301): warning C4101: 'e': unreferenced local variable
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(505): warning C4101: 'e': unreferenced local variable
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(311): warning C4018: '<': signed/unsigned mismatch
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(281): note: while compiling class template member function 'void List<int>::push_at(const unsigned int,Type)'
+          with
+          [
+              Type=int
+          ]
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(368): note: see reference to function template instantiation 'void List<int>::push_at(const unsigned int,Type)' being compiled
+          with
+          [
+              Type=int
+          ]
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(238): note: see reference to class template instantiation 'List<int>' being compiled
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(575): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(565): note: while compiling class template member function 'List<int>::List(void)'
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(238): note: see reference to function template instantiation 'List<int>::List(void)' being compiled
+  Laboratory-SDiZO-first-project.vcxproj -> D:\pulpit\struktury danych\Laboratory-SDiZO-first-project\x64\Debug\Laboratory-SDiZO-first-project.exe
+  Laboratory-SDiZO-first-project.vcxproj -> D:\pulpit\struktury danych\Laboratory-SDiZO-first-project\x64\Debug\Laboratory-SDiZO-first-project.pdb (Partial PDB)

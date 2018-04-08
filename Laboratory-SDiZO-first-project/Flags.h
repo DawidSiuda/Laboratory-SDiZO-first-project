@@ -1,12 +1,12 @@
 #pragma once
 
 //#define TEST
+//#define SHOW_LOGS
+#define RUN_TEST_STRUCTURS
 
 //#define LOG_LIST //showing logs from list.h
 //#define LOG_HEAP //showing logs from heap.h
 //#define LOG_TAB //showing logs from Table.h
-
-#define SHOW_LOGS
 
 #define NULL nullptr
 

@@ -27,10 +27,10 @@
     <ClInclude Include="Heap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Table.h">
+    <ClInclude Include="Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h">
+    <ClInclude Include="Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClCompile Include="Heap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Table.cpp">
+    <ClCompile Include="Core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core.cpp">
+    <ClCompile Include="Array.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -17,10 +17,12 @@ public:
 	void show_back() const;			// Function show all elements from list in console.
 	bool empty() const;
 	int get_size();
-	Type top() const;
+	
+	bool find(Type value);
+	int find_index_of_value(int value);
 	void edit_value_at(int index, Type new_value);
-
 	Type get_value_at(int index);
+	Type top() const;
 	
 	void push_front(Type value);
 	void push_back(Type value);
@@ -30,6 +32,8 @@ public:
 	void pop_front();
 	void pop_back();
 	void pop_random_place();
+	void pop_at(int index);
+	void pop_value(Type value);
 
 	List<Type>();
 	~List<Type>();
@@ -54,6 +58,7 @@ private:
 			previous = NULL;
 		}
 	};	
+
 	bool isEmpty;		// flag set when list is empty 
 	unsigned int size;
 	element *first;		// pointer on the first element
@@ -75,7 +80,7 @@ template<typename Type>
 		}
 	}
 
-	template<typename Type>
+template<typename Type>
 	inline void List<Type>::show_back() const
 	{
 		int counter = size-1;
@@ -90,7 +95,7 @@ template<typename Type>
 		}
 	}
 
-	template<typename Type>
+template<typename Type>
 	inline bool List<Type>::empty() const
 	{
 		if (first == NULL)
@@ -99,7 +104,7 @@ template<typename Type>
 			return false;
 	}
 
-	template<typename Type>
+template<typename Type>
 	inline int List<Type>::get_size()
 	{
 		int counter = 0;
@@ -113,7 +118,7 @@ template<typename Type>
 		return counter;
 	}
 
-	template<typename Type>
+template<typename Type>
 	inline Type List<Type>::top() const
 	{
 		if (empty() == true)
@@ -128,7 +133,42 @@ template<typename Type>
 		return last->value;
 	}
 
-	template<typename Type>
+template<typename Type>
+	inline bool List<Type>::find(Type value)
+	{
+		element *temp = first;
+		
+		while (temp != NULL)
+		{
+			if (temp->value == value)
+			{
+				return true;
+			}
+			temp = temp->next;
+		}
+
+		return false;
+	}
+
+template<typename Type>
+	inline int List<Type>::find_index_of_value(int value)
+	{
+		element *temp = first;
+		int index = 0;
+
+		while (temp != NULL)
+		{
+			if (temp->value == value)
+			{
+				return index;
+			}
+			temp = temp->next;
+			index++;
+		}
+		return -1;
+	}
+
+template<typename Type>
 	inline void List<Type>::edit_value_at(int index, Type new_value)
 	{
 		element *ptr = first;
@@ -151,9 +191,7 @@ template<typename Type>
 		return;
 	}
 
-
-
-	template<typename Type>
+template<typename Type>
 	inline void List<Type>::push_front(Type newElement)
 	{
 		#ifdef LOG_LIST
@@ -216,7 +254,9 @@ template<typename Type>
 
 		int index = rand() % size;
 
-		cout << "          ROUND: " << index << endl;
+		push_at(index, value);
+
+		/*
 
 		if (index == 0)
 		{
@@ -233,7 +273,7 @@ template<typename Type>
 			push_at(index, value);
 			return;
 		}
-
+		*/
 	}
 
 template<typename Type>
@@ -322,8 +362,6 @@ template<typename Type>
 			#endif // SHOW_LOGS
 		}
 	}
-
-
 
 template<typename Type>
 	inline void List<Type>::pop_back()
@@ -422,6 +460,83 @@ template<typename Type>
 	}
 
 template<typename Type>
+	inline void List<Type>::pop_at(int index)
+	{
+		#ifdef LOG_LIST
+		cout << "--> pop_random_place() has been called" << endl;
+		#endif // LOG_LIS
+
+		if (empty() == false)
+		{
+
+			#ifdef LOG_LIST
+			cout << "\tsize: " << size << endl;
+			cout << "\t pop from index nr: " << index << endl;
+			#endif // LOG_LIS
+
+			if (last == first)
+			{
+				delete first;
+				first = NULL;
+				last = NULL;
+				size--;
+			}
+			else
+			{
+
+				element *temp = first;
+				while (index != 0 && --index)
+				{
+					temp = temp->next;
+				}
+
+				if (temp->next == NULL)
+				{
+					pop_back();
+				}
+				else
+					if (temp->previous == NULL)
+					{
+						pop_front();
+					}
+					else
+					{
+						temp->next->previous = temp->previous;
+						temp->previous->next = temp->next;
+						delete temp;
+						size--;
+					}
+			}
+
+
+		}
+		else
+		{
+			#ifdef SHOW_LOGS
+			cout << "LOG: list: can't call pop() on list. List is empty" << endl;
+			#endif // SHOW_LOGS
+		}
+	}
+
+template<typename Type>
+	inline void List<Type>::pop_value(Type value)
+	{
+		element *temp = first;
+		int index = 0;
+
+		while (temp != NULL)
+		{
+			if (temp->value == value)
+			{
+				pop_at(index);
+			}
+			temp = temp->next;
+			index++;
+		}
+
+	}
+	
+template<typename Type>
 	inline Type List<Type>::get_value_at(int index)
 	{
 		element *ptr = first;
@@ -445,7 +560,6 @@ template<typename Type>
 		return ptr->value;
 	}
 
-	
 template<typename Type>
 	inline List<Type>::List()
 	{

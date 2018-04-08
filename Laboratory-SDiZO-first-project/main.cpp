@@ -2,155 +2,194 @@
 
 #include "List.h"
 #include "Heap.h"
-#include "Table.h"
+#include "Array.h"
 
 #include "Core.h"
 
 #include <iostream>
 #include <Windows.h>
+#include <chrono>
 
-#include <stack>
+//#include <stack>
 
+//using namespace std;
 
-using namespace std;
+LARGE_INTEGER startTimer();
+LARGE_INTEGER endTimer();
 
 void main()
 {
-#ifdef SHOW_LOGS
-	cout << " defined SHOW_LOGS" << endl;
-#endif // SHOW_LOGS
 
-
-	//List<int>sdget;
-	//List<string> iiduhiew;
 	//run_main_program();
-	/*
-	Table tab;
 	
-	for (int i = 0; i < 20; i++)
-	{
-		tab.push_random_place(i);
-	}
-	tab.show();
+#ifdef RUN_TEST_STRUCTURS
 
-	for (int i = 0; i < 60; i++)
+	const int size_of_structure = 100000;
+	int rand_data[size_of_structure];
+	std::srand(time(NULL));
+	for (int i = 0; i < size_of_structure; i++)
 	{
-		tab.pop_random_place();
-		cout << "--------------------------" << endl;
-		
+		rand_data[i] = rand() % (size_of_structure*10);
 	}
 
-	tab.show();
-	*/
-	
-	
-	Heap heap;
-
-	for (int i = 1; i < 15; i++)
+	//
+	//TEST ARRAY
+	//
 	{
-		
-		heap.push(i);
+		std::cout << "===================================" << std::endl;
+		std::cout << "TEST ARRAY" << std::endl;
+		std::cout << "===================================" << std::endl;
+		Array table;
+
+		//
+		//add elements to table
+		//
+
+		std::cout << "add " << size_of_structure << " values to the array in random pleaces" << std::endl;
+
+		chrono::steady_clock sc;   // create an object of `steady_clock` class
+		auto start = sc.now();     // start timer
+
+		for (int i = 0; i < size_of_structure; i++)
+		{
+			table.push_random_place(rand_data[i]);
+		}
+
+		auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
+		auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
+		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+		std::cout << std::endl;
+
+		//
+		//delete elements to table
+		//
+
+		std::cout << "delete " << size_of_structure / 10 << " values to the table in random pleaces" << std::endl;
+		start = sc.now();
+
+		for (int i = 0; i < size_of_structure / 10; i++)
+		{
+			table.pop_random_place();
+		}
+
+		end = sc.now();
+		time_span = static_cast<chrono::duration<double>>(end - start);
+		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+		std::cout << std::endl;
 	}
 
-	/*heap.pop(1);
-	heap.pop(14);
-	heap.show();
-	heap.push(50);
-	heap.show();*/
+	//
+	//TEST LIST
+	//
+	{
+		std::cout << "===================================" << std::endl;
+		std::cout << "TEST LIST" << std::endl;
+		std::cout << "===================================" << std::endl;
+		List<int> list;
 
-	heap.~Heap();
 
-	cout << endl;
-	//heap.show();
+		//
+		//add elements to table
+		//
+		std::cout << "add " << size_of_structure << " values to the table in random pleaces" << std::endl;
+
+		chrono::steady_clock sc;   // create an object of `steady_clock` class
+		auto start = sc.now();     // start timer
+
+		for (int i = 0; i < size_of_structure; i++)
+		{
+			list.push_front(rand_data[i]);
+		}
+
+		auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
+		auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
+		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+		std::cout << std::endl;
+
+		//
+		//delete elements to table
+		//
+
+		std::cout << "delete " << size_of_structure / 10 << " values to the table in random pleaces" << std::endl;
+		start = sc.now();
+
+		for (int i = 0; i < size_of_structure / 10; i++)
+		{
+			list.pop_random_place();
+		}
+
+		end = sc.now();
+		time_span = static_cast<chrono::duration<double>>(end - start);
+		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+		std::cout << std::endl;
+	}
+
+	//
+	//TEST HEAP
+	//
+	{
+		std::cout << "===================================" << std::endl;
+		std::cout << "TEST HEAP" << std::endl;
+		std::cout << "===================================" << std::endl;
+		Heap heap;
+
+
+		//
+		//add elements to table
+		//
+		std::cout << "add " << size_of_structure << " values to the table in random pleaces" << std::endl;
+
+		chrono::steady_clock sc;   // create an object of `steady_clock` class
+		auto start = sc.now();     // start timer
+
+		for (int i = 0; i < size_of_structure; i++)
+		{
+			heap.push(rand_data[i]);
+		}
+
+		auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
+		auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
+		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+		std::cout << std::endl;
+
+		//
+		//delete elements to table
+		//
+
+		std::cout << "delete " << size_of_structure / 10 << " values to the table in random pleaces" << std::endl;
+		start = sc.now();
+
+		for (int i = 0; i < size_of_structure / 10; i++)
+		{
+			heap.pop(rand_data[i]);
+		}
+
+		end = sc.now();
+		time_span = static_cast<chrono::duration<double>>(end - start);
+		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+		std::cout << std::endl;
+	}
+#endif // RUN_TEST_STRUCTURS
+
+	
 	system("pause");
 	return;
-	/*
-	cout << "find: " << heap.find_value(1) << endl;
-	cout << "find: " << heap.find_value(3) << endl;
-	cout << "find: " << heap.find_value(0) << endl;
-	cout << "find: " << heap.find_value(50) << endl;
-	cout << "find: " << heap.find_value(5) << endl;
-	*/
+}
 
-	//int dupa = heap.root->left->left->value;
-	//cout << "dupa: " << dupa << endl;
+LARGE_INTEGER startTimer()
+{
+	LARGE_INTEGER start;
+	DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
+	QueryPerformanceCounter(&start);
+	SetThreadAffinityMask(GetCurrentThread(), oldmask);
+	return start;
+}
 
-	//Node *ptr = heap.root->left->left;
-	/*
-	Node *ptr = heap.root->right->left->left->left;
-
-	if (ptr != NULL)
-	{
-		cout << "======================================" << endl << endl;
-		cout << ptr->value;
-		cout << endl << "======================================" << endl;
-
-	}
-	else
-	{
-		cout << "======================================" << endl << endl;
-		cout << "ptr is NULL " << endl;
-		cout << endl << "======================================" << endl;
-
-	}
-	*/
-	
-	
-	/*
-	List<int> list;
-
-
-	for (int i = 0; i < 10; i++)
-	{
-		list.push_random_place(i);
-		cout << "--------------------------" << endl;
-		list.show();
-		cout << endl;
-		list.show_back();
-		cout << "--------------------------" << endl;
-	}
-
-
-	for (int i = 0; i < 20; i++)
-	{
-		list.pop_random_place();
-		cout << "------------DELETE "<<i<<"--------------" << endl;
-		list.show();
-		cout << endl;
-		list.show_back();
-		cout << "--------------------------" << endl;
-	}
-*/
-
-	//list.show();
-
-	//cout << "-----------------------------------" << endl;
-	//cout << "--> usuwamy z 2 razy przodu" << endl;
-
-	//list.pop_front();
-	//list.pop_front();
-	//cout << "--> wyswietlamy list at 4" << endl;
-	//cout << "list[4]: " << list.get_value_at(12) << endl;
-
-	//cout << "-----------------------------------" << endl;
-	//list.pop_front();
-	//list.pop_front();
-
-	//list.show();
-
-//#ifdef TEST
-//#line linenume
-//	cout << "ERROR: Linia" << lineume << " List.h" << endl;
-//#endif // TEST
-//
-
-
-
-
-	//List<char> list;
-
-
-	
-	
-
+LARGE_INTEGER endTimer()
+{
+	LARGE_INTEGER stop;
+	DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
+	QueryPerformanceCounter(&stop);
+	SetThreadAffinityMask(GetCurrentThread(), oldmask);
+	return stop;
 }
