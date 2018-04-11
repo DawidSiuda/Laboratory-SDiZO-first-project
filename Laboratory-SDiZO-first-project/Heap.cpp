@@ -10,6 +10,7 @@ void Heap::push(int value)
 
 		return;
 	}
+
 	//
 	//create path to new node
 	//
@@ -126,6 +127,10 @@ void Heap::push(int value)
 		last_node = new_element->right;
 		number_of_elements++;
 	}
+
+	//
+	//set node on correct position in tree 
+	//
 
 	set_node_in_tree(last_node);
 }

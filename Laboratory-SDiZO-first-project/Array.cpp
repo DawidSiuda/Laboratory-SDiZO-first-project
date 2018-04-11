@@ -204,7 +204,6 @@ Array::Array()
 	srand(time(NULL));
 }
 
-
 Array::~Array()
 {
 	delete[] first;

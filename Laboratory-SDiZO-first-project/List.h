@@ -256,24 +256,6 @@ template<typename Type>
 
 		push_at(index, value);
 
-		/*
-
-		if (index == 0)
-		{
-			push_front(value);
-			return;
-		}else
-		if (index == size - 1)
-		{
-			push_back(value);
-			return;
-		}
-		else
-		{
-			push_at(index, value);
-			return;
-		}
-		*/
 	}
 
 template<typename Type>
@@ -327,8 +309,6 @@ template<typename Type>
 			size++;
 			return;
 		}
-
-
 	}
 
 template<typename Type>

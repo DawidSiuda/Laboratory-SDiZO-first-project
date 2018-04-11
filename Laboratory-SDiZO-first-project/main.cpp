@@ -98,7 +98,7 @@ void main()
 
 		for (int i = 0; i < size_of_structure; i++)
 		{
-			list.push_front(rand_data[i]);
+			list.push_random_place(rand_data[i]);
 		}
 
 		auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
