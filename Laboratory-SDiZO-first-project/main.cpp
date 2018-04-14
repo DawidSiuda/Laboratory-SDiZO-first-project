@@ -3,7 +3,6 @@
 #include "List.h"
 #include "Heap.h"
 #include "Array.h"
-#include "TreeRB.h"
 
 #include "Core.h"
 
@@ -22,27 +21,6 @@ void save_to_file(string file, string data);
 
 void main()
 {
-	//int arra[] = { 55,77,66,888,33,44,22,111 };
-	int arra[] = { 11,14,15 };//33, 44, 22, 111
-
-	srand(time(NULL));
-	int mnoznik = 10;
-	TreeRB tree;
-	
-	for (int i = 0; i < 3; i++)
-	{
-		int index = rand() % (mnoznik*100);
-		//std::cout << i << std::endl;
-		tree.push(arra[i]);
-		
-		tree.show();
-		cout << "-------------------------- - "<<endl;
-	}
-
-	tree.show();
-
-	//////////////////////////////////////////////////////////////
-
 	//run_main_program();
 	
 #ifdef RUN_TEST_STRUCTURS

@@ -1,6 +1,4 @@
 #pragma once
-#include "Structs.h"
-#include "Flags.h"
 #include "List.h"
 
 #include <iostream>
@@ -13,7 +11,7 @@ class Heap
 {
 public:
 	void push(int value);
-	void pop(int value);
+	int  pop(int value);
 	void show();
 	bool find(int value);
 
@@ -21,19 +19,12 @@ public:
 	~Heap();
 
 private:
+	void set_tree(int index);
+	void revers_set_tree(int index);
+	void replace(int index1, int index2);
 
-	Node *root;
-	Node *last_node;
-	int number_of_elements;
-	List<int> *path_to_last_node;
+	int *arrayHeap;
+	int size;
 
-private:
-	
-	void change_values(Node *node1, Node *node2);
-	void back_last_node();
-	void set_node_in_tree(Node *const(node));
-	void set_node_in_tree_reverse(Node *const(node));
-	bool find_value(int value, Node *root);
-	Node *find_pointer_to_value(int value, Node *root);
 };
 

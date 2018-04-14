@@ -1,5 +1,9 @@
 #include "Core.h"
 
+//
+//main maenu
+//
+
 void run_main_program()
 {
 	system("cls");
@@ -15,7 +19,7 @@ void run_main_program()
 		switch (choice)
 		{
 			case 1:
-				run_table_program();
+				run_array_program();
 				break;
 			case 2:
 				run_list_program();
@@ -36,7 +40,7 @@ void show_main_menu()
 	std::cout << "================================" << std::endl;
 	std::cout << "SELECT STRUCTURE" << std::endl;
 	std::cout << "================================" << std::endl;
-	std::cout << "1) Table" << std::endl;
+	std::cout << "1) array" << std::endl;
 	std::cout << "2) List" << std::endl;
 	std::cout << "3) Heap" << std::endl;
 	std::cout << std::endl;
@@ -44,8 +48,11 @@ void show_main_menu()
 }
 
 
+//
+//array menu
+//
 
-void run_table_program()
+void run_array_program()
 {
 	system("cls");
 	bool function_exit = false;
@@ -62,7 +69,7 @@ void run_table_program()
 		switch (choice)
 		{
 		case 1:
-			read_data_from_file_to_tab(my_array);
+			read_data_from_file_to_arr(my_array);
 			break;
 		case 2:
 			array_menu_add(my_array);
@@ -85,7 +92,7 @@ void run_table_program()
 	}
 }
 
-bool read_data_from_file_to_tab(Array * tab, char * path)
+bool read_data_from_file_to_arr(Array * arr, char * path)
 {
 	system("cls");
 
@@ -112,7 +119,7 @@ bool read_data_from_file_to_tab(Array * tab, char * path)
 				}
 				cout << line << endl;
 				int value = std::stoi(line, nullptr, 0);
-				tab->push_back(value);
+				arr->push_back(value);
 			}
 		}
 		catch (const std::exception& e) 
@@ -145,7 +152,7 @@ void show_array_menu()
 	std::cout << "0) Back to main menu" << std::endl << std::endl;
 }
 
-void array_menu_add(Array *tab)
+void array_menu_add(Array *arr)
 {
 	system("cls");
 
@@ -162,12 +169,12 @@ void array_menu_add(Array *tab)
 	std::cin >> value;
 	std::cout << std::endl;
 
-	tab->push_at(index, value);
+	arr->push_at(index, value);
 
 	system("pause");
 }
 
-void array_menu_delete(Array *tab)
+void array_menu_delete(Array *arr)
 {
 	system("cls");
 
@@ -181,14 +188,13 @@ void array_menu_delete(Array *tab)
 	std::cin >> index;
 	std::cout << std::endl;
 
-	tab->pop_at(index);
+	arr->pop_at(index);
 
 	system("pause");
 }
 
-void array_menu_find(Array *tab)
+void array_menu_find(Array *arr)
 {
-
 	system("cls");
 
 	int value;
@@ -201,7 +207,7 @@ void array_menu_find(Array *tab)
 	std::cin >> value;
 	std::cout << std::endl;
 
-	if (tab->find(value) == true)
+	if (arr->find(value) == true)
 	{
 		std::cout << "SUCCES: Value " << value << " was found " << std::endl;
 	}
@@ -213,7 +219,7 @@ void array_menu_find(Array *tab)
 	system("pause");
 }
 
-void array_menu_show(Array *tab)
+void array_menu_show(Array *arr)
 {
 	system("cls");
 
@@ -221,15 +227,16 @@ void array_menu_show(Array *tab)
 	std::cout << "STRUCTURE" << std::endl;
 	std::cout << "================================" << std::endl;
 
-	tab->show();
+	arr->show();
 
 	std::cout << std::endl;
 
 	system("pause");
 }
 
-
-
+//
+//list menu
+//
 
 void run_list_program()
 {
@@ -430,7 +437,9 @@ void list_menu_show(List<int>* list)
 	system("pause");
 }
 
-
+//
+//heap menu
+//
 
 void run_heap_program()
 {

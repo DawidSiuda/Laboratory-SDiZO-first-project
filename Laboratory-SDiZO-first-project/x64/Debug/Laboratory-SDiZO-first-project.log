@@ -1,4 +1,38 @@
 ﻿  main.cpp
-d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\main.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Heap.cpp
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(129): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(129): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(130): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(130): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(131): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(131): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(132): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(132): warning C4309: 'initializing': truncation of constant value
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(134): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(555): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(545): note: while compiling class template member function 'List<int>::List(void)'
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(141): note: see reference to function template instantiation 'List<int>::List(void)' being compiled
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(141): note: see reference to class template instantiation 'List<int>' being compiled
+  Core.cpp
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(125): warning C4101: 'e': unreferenced local variable
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(308): warning C4101: 'e': unreferenced local variable
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(514): warning C4101: 'e': unreferenced local variable
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(293): warning C4018: '<': signed/unsigned mismatch
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(263): note: while compiling class template member function 'void List<int>::push_at(const unsigned int,Type)'
+          with
+          [
+              Type=int
+          ]
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(375): note: see reference to function template instantiation 'void List<int>::push_at(const unsigned int,Type)' being compiled
+          with
+          [
+              Type=int
+          ]
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(245): note: see reference to class template instantiation 'List<int>' being compiled
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(555): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\list.h(545): note: while compiling class template member function 'List<int>::List(void)'
+  d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\core.cpp(245): note: see reference to function template instantiation 'List<int>::List(void)' being compiled
+  Generating Code...
+d:\pulpit\struktury danych\laboratory-sdizo-first-project\laboratory-sdizo-first-project\heap.cpp(112): warning C4715: 'Heap::pop': not all control paths return a value
   Laboratory-SDiZO-first-project.vcxproj -> D:\pulpit\struktury danych\Laboratory-SDiZO-first-project\x64\Debug\Laboratory-SDiZO-first-project.exe
   Laboratory-SDiZO-first-project.vcxproj -> D:\pulpit\struktury danych\Laboratory-SDiZO-first-project\x64\Debug\Laboratory-SDiZO-first-project.pdb (Partial PDB)
