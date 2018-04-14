@@ -407,8 +407,10 @@ void Heap::show()
 
 		cout << endl;
 
-		//////////////////////////////////////////////
+		//
 		//draw empty spaces betwen branch
+		//
+
 		for (int i = 0; i < stack_of_direction.get_size(); i++)
 		{
 
