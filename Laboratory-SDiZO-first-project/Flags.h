@@ -3,11 +3,14 @@
 //#define TEST
 //#define SHOW_LOGS
 //#define RUN_TEST_STRUCTURS
+//#define RUN_TEST_ARRAY
+//#define RUN_TEST_LIST
+#define RUN_TEST_HEAP
 
 //#define LOG_LIST //showing logs from list.h
 //#define LOG_HEAP //showing logs from heap.h
 //#define LOG_TAB //showing logs from Array.h
-#define LOG_TRE  //showing logs from TreeRB.h
+//#define LOG_TRE  //showing logs from TreeRB.h
 
 #define NULL nullptr
 

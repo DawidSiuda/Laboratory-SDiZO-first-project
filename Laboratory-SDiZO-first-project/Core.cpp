@@ -40,7 +40,7 @@ void show_main_menu()
 	std::cout << "================================" << std::endl;
 	std::cout << "SELECT STRUCTURE" << std::endl;
 	std::cout << "================================" << std::endl;
-	std::cout << "1) array" << std::endl;
+	std::cout << "1) Array" << std::endl;
 	std::cout << "2) List" << std::endl;
 	std::cout << "3) Heap" << std::endl;
 	std::cout << std::endl;
@@ -372,6 +372,8 @@ void list_menu_add(List<int>* list)
 	}
 
 	index += 1;
+
+	
 	list->push_at(index, value2);
 
 	system("pause");

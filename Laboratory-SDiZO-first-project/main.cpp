@@ -5,6 +5,7 @@
 #include "Array.h"
 
 #include "Core.h"
+#include "Timer.h"
 
 #include <iostream>
 #include <Windows.h>
@@ -16,84 +17,103 @@
 
 //using namespace std;
 
-
-void save_to_file(string file, string data);
-
 void main()
 {
 	//run_main_program();
 	
-#ifdef RUN_TEST_STRUCTURS
-
-	const int size_of_structure = 100000;
-	int rand_data[size_of_structure];
-	std::srand(time(NULL));
-	for (int i = 0; i < size_of_structure; i++)
-	{
-		rand_data[i] = rand() % (size_of_structure*10);
-	}
-
 	//
 	//TEST ARRAY
 	//
+	#ifdef RUN_TEST_ARRAY
 	{
+		//
+		//create source array
+		//
+
+		const int size_of_structure = 100000;
+		//const int size_of_structure = 100;
+		int rand_data[size_of_structure];
+		std::srand(time(NULL));
+		for (int i = 0; i < size_of_structure; i++)
+		{
+			rand_data[i] = rand();
+		}
+
+		Timer timer;
+
 		std::cout << "===================================" << std::endl;
 		std::cout << "TEST ARRAY" << std::endl;
 		std::cout << "===================================" << std::endl;
+
 		Array table;
 
 		//
 		//add elements to table
 		//
-		int how_many = 4;
-		while (how_many--)
+	
+		int mn = 1;
+		while (mn <= 10)
 		{
-			std::cout << "add " << size_of_structure << " values to the array in random pleaces" << std::endl;
+			//std::cout << "add " << mn * (size_of_structure/10) << " values to the array in random pleaces" << std::endl;
 
-			chrono::steady_clock sc;   // create an object of `steady_clock` class
-			auto start = sc.now();     // start timer
+			timer.start();
 
-			for (int i = 0; i < size_of_structure; i++)
+			for (int i = 0; i < mn * (size_of_structure/10); i++)
 			{
-				table.push_random_place(rand_data[i]);
+				table.push_front(rand_data[i]);
 			}
 
-			auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
-			auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
-			std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
-			std::cout << std::endl;
+			auto time_span = timer.stop();
 
-			std::string str = std::to_string(size_of_structure);
-
-			std::string varAsString = std::to_string(time_span.count());
-
-			string output_to_file = str + "," + varAsString;
-
-			save_to_file("data_array.txt", output_to_file);
+			//std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+			//std::cout << std::endl;
 
 			//
 			//delete elements to table
 			//
 
-			std::cout << "delete " << size_of_structure / 10 << " values to the table in random pleaces" << std::endl;
-			start = sc.now();
+			//std::cout << "delete " << mn * (size_of_structure/10) << " values to the table in random pleaces" << std::endl;
 
-			for (int i = 0; i < size_of_structure ; i++)
+			timer.start();
+
+			for (int i = 0; i < mn * (size_of_structure/10); i++)
 			{
-				table.pop_random_place();
+				table.pop_back();
 			}
 
-			end = sc.now();
-			time_span = static_cast<chrono::duration<double>>(end - start);
-			std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
-			std::cout << std::endl;
+
+			time_span = timer.stop();
+
+			//std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+			cout << time_span.count() << endl;;
+			//std::cout << std::endl;
+
+			mn++;
 		}
+		std::cout << std::endl;
 	}
+	#endif //RUN_TEST_ARRAY
 
 	//
 	//TEST LIST
 	//
+	#ifdef RUN_TEST_LIST
 	{
+		//
+		//create source array
+		//
+		
+		const int size_of_structure = 100000;
+		//const int size_of_structure = 100;
+		int rand_data[size_of_structure];
+		std::srand(time(NULL));
+		for (int i = 0; i < size_of_structure; i++)
+		{
+			rand_data[i] = rand();
+		}
+
+		Timer timer;
+
 		std::cout << "===================================" << std::endl;
 		std::cout << "TEST LIST" << std::endl;
 		std::cout << "===================================" << std::endl;
@@ -103,100 +123,119 @@ void main()
 		//
 		//add elements to table
 		//
-		std::cout << "add " << size_of_structure << " values to the table in random pleaces" << std::endl;
 
-		chrono::steady_clock sc;   // create an object of `steady_clock` class
-		auto start = sc.now();     // start timer
-
-		for (int i = 0; i < size_of_structure; i++)
+		int mn = 1;
+		while (mn <= 10)
 		{
-			list.push_random_place(rand_data[i]);
+			//std::cout << "add " << mn*(size_of_structure/10) << " values to the table in random pleaces" << std::endl;
+
+			timer.start();
+
+			for (int i = 0; i < mn*(size_of_structure/10); i++)
+			{
+				list.push_back(rand_data[i]);
+			}
+
+
+			auto time_span = timer.stop();
+			//std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+			//std::cout << std::endl;
+
+			//
+			//delete elements to table
+			//
+
+			//std::cout << "delete " << mn*(size_of_structure/10) << " values to the table in random pleaces" << std::endl;
+
+			timer.start();
+
+			for (int i = 0; i < mn*(size_of_structure/10) ; i++)
+			{
+				list.pop_back();
+			}
+
+
+			time_span = timer.stop();
+			//std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+			cout << time_span.count();
+			std::cout << std::endl;
+
+			mn++;
 		}
-
-		auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
-		auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
-		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
-		std::cout << std::endl;
-
-		//
-		//delete elements to table
-		//
-
-		std::cout << "delete " << size_of_structure / 10 << " values to the table in random pleaces" << std::endl;
-		start = sc.now();
-
-		for (int i = 0; i < size_of_structure / 10; i++)
-		{
-			list.pop_random_place();
-		}
-
-		end = sc.now();
-		time_span = static_cast<chrono::duration<double>>(end - start);
-		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
-		std::cout << std::endl;
 	}
+	#endif //RUN_TEST_LIST
 
 	//
 	//TEST HEAP
 	//
+	#ifdef RUN_TEST_HEAP
 	{
+		//
+		//create source array
+		//
+
+		const int size_of_structure = 100000;
+		//const int size_of_structure = 100;
+		int rand_data[size_of_structure];
+		std::srand(time(NULL));
+		for (int i = 0; i < size_of_structure; i++)
+		{
+			rand_data[i] = rand();
+		}
+
+		Timer timer;
+
 		std::cout << "===================================" << std::endl;
 		std::cout << "TEST HEAP" << std::endl;
 		std::cout << "===================================" << std::endl;
+
 		Heap heap;
 
 
 		//
 		//add elements to table
 		//
-		std::cout << "add " << size_of_structure << " values to the table in random pleaces" << std::endl;
 
-		chrono::steady_clock sc;   // create an object of `steady_clock` class
-		auto start = sc.now();     // start timer
-
-		for (int i = 0; i < size_of_structure; i++)
+		int mn = 1;
+		while (mn <= 10)
 		{
-			heap.push(rand_data[i]);
+			//std::cout << "add " <<mn*(size_of_structure/10)<< " values to the table in random pleaces" << std::endl;
+
+			timer.start();
+
+			for (int i = 0; i <mn*(size_of_structure/10); i++)
+			{
+				heap.push(rand_data[i]);
+			}
+
+			auto time_span = timer.stop();
+			//std::cout << "Operation took: " << mn*(size_of_structure/10) << " seconds !!!" << std::endl;
+			//cout << time_span.count() << endl;
+			//std::cout << std::endl;
+
+			//
+			//delete elements to table
+			//
+
+			timer.start();
+
+			for (int i = 0; i < mn*(size_of_structure/10); i++)
+			{
+				heap.pop(rand_data[i]);
+			}
+
+			time_span = timer.stop();
+			//std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
+			cout << time_span.count();
+			std::cout << std::endl;
+
+			mn++;
 		}
-
-		auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
-		auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
-		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
-		std::cout << std::endl;
-
-		//
-		//delete elements to table
-		//
-
-		std::cout << "delete " << size_of_structure / 10 << " values to the table in random pleaces" << std::endl;
-		start = sc.now();
-
-		for (int i = 0; i < size_of_structure / 10; i++)
-		{
-			heap.pop(rand_data[i]);
-		}
-
-		end = sc.now();
-		time_span = static_cast<chrono::duration<double>>(end - start);
-		std::cout << "Operation took: " << time_span.count() << " seconds !!!" << std::endl;
-		std::cout << std::endl;
 	}
-#endif // RUN_TEST_STRUCTURS
+	#endif // RUN_TEST_HEAP
 
 	
 	system("pause");
 	return;
 }
 
-
-void save_to_file(string file, string data)
-{
-	ofstream myfile(file);
-	if (myfile.is_open())
-	{
-		myfile << data;
-		myfile.close();
-	}
-	else cout << "Unable to open file";
-	return;
-}

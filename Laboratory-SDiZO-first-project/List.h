@@ -289,22 +289,51 @@ template<typename Type>
 		}
 		else
 		{
-			element* ptr = first;
-			for (int i = 0; i < index; i++)
+			//
+			//if the index is closer to the end than the beginning,
+			//we start iterations from the back
+			//
+
+			if (index > (size / 2))
 			{
-				ptr = ptr->next;
+				element* ptr = last;
+				int back_index = size - index;
+
+				for (int i = 0; i < back_index-1 ; i++)
+				{
+					ptr = ptr->previous;
+				}
+
+				element *temp = new element();
+
+				temp->next = ptr;
+				temp->previous = ptr->previous;
+
+
+				ptr->previous = temp;
+				temp->previous->next = temp;
+
+				temp->value = value;
 			}
+			else
+			{
+				element* ptr = first;
+				for (int i = 0; i < index; i++)
+				{
+					ptr = ptr->next;
+				}
 
-			element *temp = new element();
-			
-			temp->next = ptr;
-			temp->previous = ptr->previous;
+				element *temp = new element();
 
-			
-			ptr->previous = temp;
-			temp->previous->next = temp;
-			
-			temp->value = value;
+				temp->next = ptr;
+				temp->previous = ptr->previous;
+
+
+				ptr->previous = temp;
+				temp->previous->next = temp;
+
+				temp->value = value;
+			}
 
 			size++;
 			return;
@@ -460,6 +489,33 @@ template<typename Type>
 				first = NULL;
 				last = NULL;
 				size--;
+			}else
+			if (index > (size / 2))
+			{
+				element* temp = last;
+				int back_index = size - index;
+
+				for (int i = 0; i < back_index-1 ; i++)
+				{
+					temp = temp->previous;
+				}
+
+				if (temp->next == NULL)
+				{
+					pop_back();
+				}
+				else
+					if (temp->previous == NULL)
+					{
+						pop_front();
+					}
+					else
+					{
+						temp->next->previous = temp->previous;
+						temp->previous->next = temp->next;
+						delete temp;
+						size--;
+					}
 			}
 			else
 			{

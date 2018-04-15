@@ -89,7 +89,6 @@ int Heap::pop(int value)
 	{
 		if (i == index)
 		{
-			cout << "DUPA " << endl;
 			temp[i] = arrayHeap[size-1];
 			continue;
 		}
